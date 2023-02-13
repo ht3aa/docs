@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Networking doc</title>
+  </head>
+  <body>
+    <header>
+      <h1>Networking Documentations</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Terms:</h2>
+        <p>gateway = router</p>
+        <p>Internet = means a very large set of connected routers.</p>
+      </section>
+      <section>
+        <h2>Useful commands in terminal:</h2>
+        <p>ipconfig => show your IP address and subnet mask.</p>
+      </section>
+      <section>
+        <h2>IP Address:</h2>
+        <p>
+          IP addresses consist of 4 parts separated by dots and they are like
+          phone numbers and there is 2 ways to write them:
+        </p>
+        <ol>
+          <li>IPv4 (ex: 192.168.0.1)</li>
+          <li>IPv6 (ex: 2001:0db8:0000:0000:0000: 8a2e:0370:7334)</li>
+        </ol>
+        <p>
+          The IPv4 old and common wheres IPv6 new and bigger. For now our
+          documentation is for IPv6
+        </p>
+      </section>
+      <section>
+        <h3>Types of IP Address:</h3>
+        <p>There are 2 types of IP Address:</p>
+        <ol>
+          <li>
+            Privet IP Address (Not Unique and can't connect to the internet. In
+            other words your device can't send data to the internet)
+          </li>
+          <li>Public IP Address (Unique and can connect to the internet)</li>
+        </ol>
+
+        <p>
+          The system goes like this: ISP (Internet service provider) will give
+          your home router <strong>(default gateway)</strong> a public IP
+          Address then your router will generate a privet IP addresses to the
+          devices that are connected to it (This operation called DHCP). So when
+          a device wants to send the data to the internet it will happened via
+          the public IP address of the home router
+          <strong>(default gateway)</strong>
+        </p>
+      </section>
+      <section>
+        <p>
+          <strong class="note">Note: </strong>the total of the devices that can
+          connect to the home router is 253 not 256 why? because the first IP
+          address (ex:192.168.0.0) is the network IP address wheres the last IP
+          address (ex:192.168.0.255) is the broadcast IP address (he will talk
+          to everyone in the same network) and lastly the router IP address.
+        </p>
+      </section>
+
+      <section>
+        <img
+          src="https://www.tecmint.com/wp-content/uploads/2021/04/Classes-of-IP-Addresses.png"
+          alt="IP classes"
+        />
+        <p>
+          <strong class="note">Note: </strong>127.0.0.0 is missing in the table.
+          this IP address with subnet masking of 255.0.0.0 is for your network
+          testing. (localhost?) in terminal ” ping 127.0.0.1 ” (ping means are
+          you alive?)
+        </p>
+      </section>
+      <section>
+        <h2>subnet mask:</h2>
+        <p>it's a tuff one so let's break it down</p>
+        <ul>
+          <li>in decimal format: 255.255.255.0</li>
+
+          <ol>
+            <li>
+              255 => means the part that corresponding to IP address stay the
+              same
+            </li>
+            <li>
+              0 => means the part that corresponding to IP address are ranged
+              from 0 to 255
+            </li>
+          </ol>
+
+          <li>in binary format:11111111.11111111.11111111. 00000000</li>
+          <ol>
+            <li>
+              1 => means network bits (the part of the network that won't change
+              and tells us which network we are in)
+            </li>
+            <li>0 => means host bits</li>
+          </ol>
+          <p>
+            So if you want more hosts? add 0 instead of 1 (ex:
+            11111111.11111111.11111100. 00000000)
+          </p>
+          <p>
+            And if you want more networks? add 1 instead of 0 (ex:
+            11111111.11111111.1111111. 11000000 "this give me 4 networks") the
+            decimal format is 255.255.255.192 which give as 26 networks (numbers
+            of 1). How many hosts in each networks? we will see the last network
+            bit and convert it to decimal which will give as the increment
+            number (The increment indicate how many hosts should each network
+            have. In the case of example above the increment = 64) so network 1
+            from 192.168.1.0-192.168.1.63. Network 2 192.168.1.64-192.168.1.127.
+            Network 3 192.168.1.128-192.168.1.191. Network 4
+            192.168.1.192-192.168.1.255
+          </p>
+          <p>
+            <strong
+              >(This is subnetting. The practice of dividing a network into two
+              or more networks is called subnetting.) how to do it in
+              programming way? idk.</strong
+            >
+          </p>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <section>
+        <h2>References:</h2>
+        <p>
+          <a
+            href="https://youtube.com/playlist?list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF"
+            >NetworkChuck course</a
+          >
+        </p>
+      </section>
+      <label>last updated: 2/13/2023 by hassan tahseen @ht3aa</label>
+    </footer>
+  </body>
+</html>
