@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Vite Documentation</title>
+  </head>
+  <body>
+    <header>
+      <h1>Vite Documentations</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Terms:</h2>
+        <p>
+          SSR (Server-Side Rendering) = is a technique used in web development
+          to generate HTML pages on the server and send them to the client
+          browser, as opposed to generating the HTML dynamically in the browser
+          using JavaScript
+        </p>
+        <p>ESM = EcmaScript Modules</p>
+        <p>
+          NESM (native EcmaScript Modules) = &lt;script type='module'
+          src='main.js'&gt;&lt;/script&gt; then you can use (import) statement
+          in main.js.
+        </p>
+        <p>
+          modules = the ability of import js code from a file to another file.
+        </p>
+        <p>
+          bundling = process of combining 2 or more files into on file that can
+          be loaded into the browser.
+        </p>
+        <p>
+          Hot Module Replacement (HMR) = just like live reload but for modules
+        </p>
+      </section>
+      <section>
+        <h2>Vite</h2>
+        <p>
+          Vite is a frontend tool used to bundle and serve your code in very
+          fast way for development and production purposes. It used for static
+          files like (js,css,html).
+        </p>
+        <p>
+          Vite pre-bundles dependencies using esbuild. esbuild is written in Go
+          and pre-bundles dependencies 10-100x faster than JavaScript-based
+          bundlers.
+        </p>
+        <p>
+          Vite serves source code over native ESM. This is essentially letting
+          the browser take over part of the job of a bundler: Vite only needs to
+          transform and serve source code on demand, as the browser requests it.
+          Code behind conditional dynamic imports is only processed if actually
+          used on the current screen.
+        </p>
+        <p>
+          When a developer makes changes to a module that is part of an
+          HMR-enabled bundle, the HMR runtime will determine which modules are
+          affected by the change and mark them as outdated. The runtime will
+          then try to update or reload those modules while preserving the
+          application state, starting from the closest HMR boundary and working
+          its way through the module graph. By invalidating the chain between
+          the edited module and its closest HMR boundary, the HMR runtime
+          ensures that the application stays in a consistent and functioning
+          state during the update process.
+        </p>
+        <p>
+          Vite also leverages HTTP headers to speed up full page reloads (again,
+          let the browser do more work for us): source code module requests are
+          made conditional via 304 Not Modified, and dependency module requests
+          are strongly cached via Cache-Control: max-age=31536000,immutable so
+          they don't hit the server again once cached.
+        </p>
+        <p>
+          URLs inside index.html are automatically rebased so there's no need
+          for special %PUBLIC_URL% placeholders.
+        </p>
+      </section>
+      <section>
+        <h2>Vite in laravel</h2>
+        <p>
+          laravel made a plugin called (laravel-vite-plugin) to make sure that
+          laravel backend server works with vite frontend tool
+        </p>
+        <h3>How to use vite in laravel?</h3>
+        <ol>
+          <li>start new laravel project (vite is automatically installed)</li>
+          <li>
+            in the (.env) file change the (APP_URL) environment variable to be
+            the same url of (php artisan serve command). usually it is
+            http://localhost:8000
+          </li>
+          <li>
+            add (@vite('resources/js/app.js')) code to the (welcome.blade.php)
+            to make vite reload the page when you change something in that file.
+            (I think you need to add that code in every .blade.php file)
+          </li>
+          <li>start new terminal and run (npm install) then (npm run dev)</li>
+          <li>start other terminal and run (php artisan serve)</li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <section>
+        <h2>References:</h2>
+        <p>
+          <a href="https://vitejs.dev/guide/">Vite official documentation</a>
+        </p>
+      </section>
+      <h6>last updated: 2/14/2023 by hassan tahseen @ht3aa</h6>
+    </footer>
+  </body>
+</html>

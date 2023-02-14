@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>PHP doc</title>
+  </head>
+  <body>
+    <header>
+      <h1>PHP Documentations</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Terms:</h2>
+        <p>__DIR__ = gives the absolute path (ex: D://ht3aa_work/laravel)</p>
+      </section>
+      <section>
+        <h2>composer</h2>
+        <h3>autoloading</h3>
+        <p>
+          autoloading means php will load all the classes,interfaces,traits that
+          is not included or in other word undefined.
+        </p>
+        <p>
+          (spl_autoload_register(function($class) { // code })) this is a
+          function that php run when you use a class that is not included in
+          your current file before throwing an error.
+        </p>
+        <p>
+          composer helping us in this by creating autoload.php file in vendor
+          directory. So all you is include that file to your main project file.
+          but it does no how to load user-defined classes. To solve this you
+          need to add "autoload" object in compose.json file then inside it
+          "psr-4" object. then you want to map the namespace of the class to the
+          directory of that class. After that run "composer dump-autoload" in
+          the terminal to regenerate the autoload files to include the ones that
+          you added. (laravel do that for us using /artisan and
+          /bootstrap/app.php)
+        </p>
+      </section>
+    </main>
+    <footer>
+      <section>
+        <h2>References:</h2>
+        <p>
+          <a href="https://youtu.be/rqzYdHdyMH0">Program with gio</a>
+        </p>
+      </section>
+      <h6>last updated: 2/14/2023 by hassan tahseen @ht3aa</h6>
+    </footer>
+  </body>
+</html>
