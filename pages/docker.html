@@ -4,8 +4,98 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Docker Documentations</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Terms:</h2>
+        <p>Docker daemon host = Docker engin on the host</p>
+        <p>DNS = Domain Name system (192.168.0.1 = www.hassan.com)</p>
+        <p>Driver = network type</p>
+      </section>
+      <section>
+        <h2>Useful commands in terminal:</h2>
+        <p>--network [network name] = to add a container to a network</p>
+        <p>ip address show = show all your networks</p>
+        <p>docker network create [name] = create user-defined network</p>
+        <p>docker network rm [name] = remove user-defined network</p>
+        <p>
+          docker network connect [network name] [container name] = To connect a
+          running container to an existing user-defined bridge
+        </p>
+        <p>
+          docker network disconnect [network name] [container name] = Disconnect
+          a container from a user-defined bridge
+        </p>
+      </section>
+      <section>
+        <h2>Docker:</h2>
+        <p>
+          It consist from images and containers. images are the
+          code,os,dependencies wheres is containers are the apps that run the
+          images.
+        </p>
+      </section>
+      <section>
+        <h2>Docker Networking:</h2>
+        <p>
+          it just a rules that docker daemon gives to the kernal (ex: let
+          containerA connect to containerB and no one else)
+        </p>
+        <p>Network Drivers:</p>
+        <ol>
+          <li>
+            bridge: is a software that allows containers to communicate
+            (containers in the same network only).
+            <h6>
+              If your containers are in different Docker daemon and you want
+              them to communicate visit
+              <a href="https://docs.docker.com/network/overlay/">this page</a>.
+            </h6>
+            <p>
+              When you create a new container it will assign to the default
+              bridge network. (avoid this as you can)
+            </p>
+            <p>In the user-defined bridge network:</p>
+            <ul>
+              <li>
+                container name is the DNS (IP address of container = name of the
+                container)
+              </li>
+              <li>better isolation.</li>
+              <li>
+                Containers can be attached and detached from user-defined
+                networks on the fly.
+              </li>
+              <li>Each user-defined network creates a configurable bridge.</li>
+              <li>
+                If some ports in a container are exposed then other containers
+                can connect to that ports without any additional information.
+                (idk how).
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <section>
+        <h2>References:</h2>
+        <p>
+          <a href="https://docs.docker.com/network/bridge/"
+            >Docker bridge network</a
+          >,
+          <a href="https://youtu.be/bKFMS5C4CG0"
+            >Docker networking by networkchuck</a
+          >
+        </p>
+      </section>
+      <h6>last updated: 2/13/2023 by hassan tahseen @ht3aa</h6>
+    </footer>
+  </body>
 </html>
