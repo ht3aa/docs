@@ -1,0 +1,24 @@
+closures is a class so when you use anonymous functions it really implemented a new instance of closures class.
+
+
+closures = anonymous function (anonymous function can use as a value or callable parameter).
+
+// anonymous function as value
+PHP automatically converts such expressions into instances of the Closure internal class
+$showUsername = function($username) {
+    return $username;
+}
+
+
+// anonymous function as callable parameter
+$sayHello = function($username, callable $fn) {
+	$usernameMod = $fn($username);
+    $greeting = 'hello ' . $usernameMod;
+    echo $greeting;
+};
+
+$sayHello('hassan', function($username) {
+	return $username;
+});
+
+! think like that => $fn = function that implemented in the invoke call.

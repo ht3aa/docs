@@ -1,0 +1,9 @@
+using this package https://github.com/php-fig/simple-cache
+
+ttl => time to live
+how much time should the data stay in the cache driver?
+
+iterable<datatype> => means array or object that I can loop on it.
+
+
+the CacheInterface.php file responsible to (get, set, delete) one or more data from cache.

@@ -1,0 +1,1 @@
+Its an interface extend CacheInterface and also is used for cache stuff like (put, get, increment, decrement...)

@@ -1,0 +1,3 @@
+just extend the throwable interface
+
+Throwable is the base interface for any object that can be thrown via a throw statement, including Error and Exception.

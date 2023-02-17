@@ -1,0 +1,11 @@
+what do we mean by "bootstrapped"? In general, we mean registering things, including registering service container bindings, event listeners, middleware, and even routes. Service providers are the central place to configure your application.
+
+
+In (config/app.php) there is providers array. a set of Laravel core service providers are listed in this array. These providers bootstrap the core Laravel components, such as the mailer, queue, cache, and others. Many of these providers are "deferred" providers, meaning they will not be loaded on every request, but only when the services they provide are actually needed.
+
+
+
+Within the register method, you should only bind things into the service container. You should never attempt to register any event listeners, routes, or any other piece of functionality within the register method.
+
+
+boot method => This method is called after all other service providers have been registered, meaning you have access to all other services that have been registered by the framework:

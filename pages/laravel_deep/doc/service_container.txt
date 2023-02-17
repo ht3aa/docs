@@ -1,0 +1,59 @@
+container is your entire app and you can access it using ($this->app) in providers folder. If you want to use the container outside the providers folder then you can use (App facade) (App::methodName)
+container service is for managing class dependencies and performing dependency injection
+dependency inject means class dependencies are "injected" into the class via the constructor or, in some cases, "setter" methods.
+
+public function __construct(
+    protected UserRepository $users,
+) {}
+
+This code is called "constructor property promotion"
+By using constructor property promotion, the $users parameter is automatically assigned to the $this->users property, which is available throughout the class.
+
+!! you must never use (new className()) again.
+
+concrete classes = simple class
+
+
+
+Zero Configuration Resolution:
+If a class has no dependencies or only depends on other concrete classes (not interfaces), the container does not need to be instructed on how to resolve that class.
+means if you add a class in some folder and that class doesn't have any dependencies. then you can use it as type-hint everywhere else and the container will inject it automatically.
+
+
+controllers, event listeners, middleware, and more. automatically have container service.
+
+if you write a class that implements an interface and you wish to type-hint that interface on a route or class constructor, you must tell the container how to resolve that interface. Secondly, if you are writing a Laravel package that you plan to share with other Laravel developers, you may need to bind your package's services into the container.
+
+
+
+Binding:
+this stuff must be in Providers folder.
+
+$this->app->bind method => uses to bind the second argument with first one. Tell the container how to resolve the first argument whenever it used (meaning create brand new instance whenever the first argument used).
+$this->app->make method => resolve a class from a container or return an instance of class. its equal to (new className()).
+$this->app->singleton method => same as (bind method) but it resolve once on in the first use of the first argument (making an instance) then return that instance on the subsequent calls. (one instance flow to entire app. means you can play with it in deferent locations.)
+$ you can bind interface (first argument, interface::class) to class (second argument).
+
+
+when you want different implementation of an interface in some classes.
+https://laravel.com/docs/10.x/container#contextual-binding
+$this->app->when(PhotoController::class)
+          ->needs(Filesystem::class)
+          ->give(function () {
+              return Storage::disk('local');
+          });
+
+
+There is no need to bind classes into the container if they do not depend on any interfaces. The container does not need to be instructed on how to build these objects, since it can automatically resolve these objects using reflection. (reflection means that the interface can describe it self. in other word implement the same class.)
+
+
+You can invoke a function while the container inject the dependencies.
+
+
+
+!!! there is bindings And singletons Properties (arrays of key-value paris) which you can use in register method in service provide to easily binds. (as we mentioned above)
+https://laravel.com/docs/10.x/providers#the-bindings-and-singletons-properties
+
+
+
+

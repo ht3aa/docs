@@ -8,8 +8,72 @@
 </head>
 <body>
     <header>
-      <h1>PHP Documentations</h1>
+      <h1>Laravel Documentations</h1>
     </header>
+
+    <main>
+      <section>
+        <h2>Terms:</h2>
+        <p>Dependency injection = means that you don't have to make an instance object form a class using new keyword instead you can use your class name as a datatype and put it in the parameter of your method. for example: public function index(UserController $user) { // here your $user variable will be an instance of UserController class}. laravel use something called (Service container) to do Dependency injection.</p>
+        <p>closures = Anonymous functions (function without a name that can be used in callback argument or in variable)</p>
+      </section>
+      
+      <section>
+        <h2>Laravel functions:</h2>
+        <p>env([environment variable name in string format], [default value for the environment variable if it don't have any value in the .env file]) = return the value of the environment variable.</p>
+      </section>
+      
+      <section>
+        <h2>Laravel artisan commands</h2>
+        <p>php artisan env:encrypt = encrypt your .env file. It will generate a key. Store that key in a safe place.
+          php artisan env:decrypt --key=[key that is generated from the command above] = decrypt to original .env file.
+        </p>
+        <p>php artisan config:cache = command to cache all your configuration options into a single file. you should use this command in the production environment only because in development if you use it the configuration will not accept any changes.</p>
+        <p>php artisan about = display the app configuration.</p>
+      </section>
+      <section>
+        <h2>Important</h2>
+        <p>there is frontend,Deployment docs in <a href="https://laravel.com/docs/10.x">laravel doc</a></p>
+        <p>Service providers are truly the key to bootstrapping a Laravel application. (you must learn it)</p>
+      </section>
+      
+      <section>
+        <h2>Laravel lifecycle:</h2>
+        <p>All requests are redirect to index.php file.</p>
+      </section>
+      <section>
+        <h2>Laravel service container:</h2>
+        <p>You can use a class as datatype in the function parameters to make instances (Dependency injection). (use it a lot.). All controllers, event listeners, middleware receive their dependencies via the service container automatically.</p>
+        <p>you need to make a service provider (php artisan make:provider [name of service provider]) then use bind method ($this->app->bind()) to register a class or an interface to the service container. (idk how bind works)</p>
+      </section>
+      <section>
+        <h2>Configuration stuff</h2>
+        <p>All laravel configuration exist in the config folder. the files of config folder get the environment values from the .env file by (env function)</p>
+        <p>you shouldn't deploy your .env file instead you should encrypt that file using <a href="https://laravel.com/docs/10.x/configuration#encrypting-environment-files">environment encryption</a></p>
+        <p>use (" ") if you want spaces in your environment variable.</p>
+        <p>You should make (APP_Key=false) when you are in production environment.</p>
+      </section>
+      <section>
+        <h2>Maintenance Mode</h2>
+        <p>When your application is in maintenance mode, a custom view will be displayed for all requests into your application. This makes it easy to "disable" your application while it is updating or when you are performing maintenance</p>
+      </section>
+      <section>
+        <h2>Root Directories</h2>
+        <h4>Storage Directory</h4>
+        <p>The storage/app/public directory may be used to store user-generated files, such as profile avatars, that should be publicly accessible. You should create a symbolic link at public/storage which points to this directory. You may create the link using the ()php artisan storage:link) Artisan command.</p>
+        <h4>Console Directory</h4>
+        <p>The Console directory contains all of the custom Artisan commands for your application></p>
+      </section>
+
+
+
+      <section>
+        <h2>digging deeper to laravel</h2>
+        <p></p>
+
+      </section>
+
+    </main>
     <footer>
       <section>
         <h2>References:</h2>
@@ -17,7 +81,7 @@
           <a href="https://youtu.be/rqzYdHdyMH0">Program with gio</a>
         </p> -->
       </section>
-      <h6>last updated: 2/14/2023 by hassan tahseen @ht3aa</h6>
+      <h6>last updated: 2/15/2023 by hassan tahseen @ht3aa</h6>
     </footer>
 </body>
 </html>
